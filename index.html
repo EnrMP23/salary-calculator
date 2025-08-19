@@ -9,7 +9,7 @@
 <body>
     <style>
   body {
-    background-color: black;
+    background-color: rgb(37, 30, 66);
     display: flex;
     flex-direction: column; /* Stack items vertically */
     align-items: center;     /* Center horizontally */
@@ -26,7 +26,7 @@
 
   section {
     background-color: #111;
-    border: 1px solid whitesmoke;
+    border: 1px solid rgb(33, 33, 33);
     border-radius: 12px;
     padding: 20px;
     margin: 10px 0;
@@ -72,7 +72,7 @@
   output {
     display: block;
     font-weight: bold;
-    color: lightgreen;
+    color: rgb(98, 235, 95);
     font-size: 1.2em;
     margin-top: 10px;
   }
@@ -103,9 +103,9 @@
 </section>
 
 <section>
-  <p><output id="monthlySalaryOutput">Monthly Salary: $0.00</output></p>
-  <p><output id="annualSalaryOutput">Annual Salary: $0.00</output></p>
-  <p><output id="monthlyAnnualSalaryOutput">Annual/Monthly Salary: $0.00</output></p>
+  <p><output id="monthlySalaryOutput"><span style="color: white;">Monthly Salary:</span> <span style="font-size: 1.4rem;">$0.00</span></output></p>
+  <p><output id="annualSalaryOutput"><span style="color: white;">Annual Salary:</span> <span style="font-size: 1.4rem;">$0.00</span></output></p>
+  <p><output id="monthlyAnnualSalaryOutput"><span style="color: white;">Annual/Monthly Salary:</span> <span style="font-size: 1.4rem;">$0.00</span></output></p>
 </section>
 
 <script>
@@ -128,14 +128,14 @@
     const yearlySalaryDivMonthly = yearlySalary / 12;
 
     // Display the result
-    document.getElementById('monthlySalaryOutput').textContent =
-  `Monthly Salary: $${monthlySalary.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+    document.getElementById('monthlySalaryOutput').innerHTML =
+  `<span style="color: white;">Monthly Salary:</span> <span style="font-size: 1.4rem;">$${monthlySalary.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>`;
 
-    document.getElementById('annualSalaryOutput').textContent =
-  `Annual Salary: $${annualSalary.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+    document.getElementById('annualSalaryOutput').innerHTML =
+  `<span style="color: white;">Annual Salary:</span> <span style="font-size: 1.4rem;">$${annualSalary.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>`;
 
-    document.getElementById('monthlyAnnualSalaryOutput').textContent = 
-  `Annual/Monthly Salary: $${yearlySalaryDivMonthly.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+document.getElementById('monthlyAnnualSalaryOutput').innerHTML =
+  `<span style="color: white;">Annual/Monthly Salary:</span> <span style="font-size: 1.4rem;">$${yearlySalaryDivMonthly.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>`;
   }
 
   function reset() {
@@ -146,9 +146,14 @@
   document.getElementById('yearlySalary').value = '';
 
   // Reset output fields
-  document.getElementById('monthlySalaryOutput').textContent = 'Monthly Salary: $0.00';
-  document.getElementById('annualSalaryOutput').textContent = 'Annual Salary: $0.00';
-  document.getElementById('monthlyAnnualSalaryOutput').textContent = 'Annual/Monthly Salary: $0.00';
+  document.getElementById('monthlySalaryOutput').innerHTML =
+    `<span style="color: white;">Monthly Salary:</span> <span style="font-size: 1.4rem;">$0.00</span>`;
+
+  document.getElementById('annualSalaryOutput').innerHTML =
+    `<span style="color: white;">Annual Salary:</span> <span style="font-size: 1.4rem;">$0.00</span>`;
+
+  document.getElementById('monthlyAnnualSalaryOutput').innerHTML =
+    `<span style="color: white;">Annual/Monthly Salary:</span> <span style="font-size: 1.4rem;">$0.00</span>`;
 }
 
 </script>
